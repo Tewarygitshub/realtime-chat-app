@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Real-Time Chat with Features</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="chat-container">
+        <h2>Chat Room
+            <span id="history-icon" title="Load History">📜</span>
+            <span id="delete-history-icon" title="Delete History">🗑️</span>
+        </h2>
+        
+        <div id="history-box" style="display: none;">
+            <h3>Chat History
+              <span id="back-icon" title="Back to Chat">🔙</span>
+            </h3>
+            <div id="history-messages"></div>
+          </div>
+          
+        <div id="chat-box"></div>
+
+        <div class="input-row">
+            <input type="text" id="chat-input" placeholder="Type a message..." />
+            <button class="send-button" onclick="sendMessage()">Send</button>
+        </div>
+
+        <div class="buttons">
+            <button class="voice-button" onclick="startSpeechRecognition()">🎤 Voice</button>
+            <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage(event)">
+            <button class="camera-button" onclick="startCamera()">📷 Camera</button>
+        </div>
+
+        <video id="camera" autoplay></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <button id="captureBtn" onclick="captureImage()">📸 Capture</button>
+    </div>
+
+    <!-- Sign Video Modal -->
+    <div id="video-modal">
+        <div id="video-container"></div>
+        <button id="close-modal" onclick="closeModal()">Close</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

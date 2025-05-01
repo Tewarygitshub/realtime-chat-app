@@ -1,0 +1,308 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#chat-container {
+  width: 90%;
+  max-width: 500px;
+  background: white;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #444;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#history-button {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+  transition: 0.3s;
+}
+#history-button:hover {
+  color: #333;
+}
+
+#chat-box {
+  height: 350px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  padding: 10px 14px;
+  margin: 6px;
+  border-radius: 12px;
+  max-width: 75%;
+  word-wrap: break-word;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  background: #4CAF50;
+  color: white;
+  align-self: flex-end;
+  text-align: left;
+  border-radius: 12px 12px 0px 12px;
+}
+
+.other-message {
+  background: #ddd;
+  color: black;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 12px 12px 12px 0px;
+}
+
+#chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.send-button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.send-button:hover {
+  background: #0056b3;
+}
+
+.sign-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.sign-button:hover {
+  background: #e68900;
+}
+
+.voice-button, .camera-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+.voice-button:hover, .camera-button:hover {
+  background: #388E3C;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#video-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  width: 90%;
+  max-width: 450px;
+}
+
+#video-modal video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+#close-modal {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#camera {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  display: none;
+  border-radius: 10px;
+  margin: 10px auto;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+#captureBtn {
+  display: none;
+  margin: 10px auto;
+  padding: 8px 15px;
+  font-size: 14px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#captureBtn:hover {
+  background: #218838;
+}
+
+/* History Modal */
+#history-modal {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+  max-height: 80%;
+  overflow-y: auto;
+  z-index: 2000;
+  width: 90%;
+  max-width: 400px;
+}
+#history-modal button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+
+
+#video-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        text-align: center;
+        z-index: 1000;
+        width: 90%;
+        max-width: 450px;
+    }
+
+    #video-modal video {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+    }
+
+    #close-modal {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #camera, #recordingVideo {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        display: none;
+        border-radius: 10px;
+        margin: 10px auto;
+        object-fit: cover;
+        border: 2px solid #ddd;
+    }
+
+    #captureBtn, #startRecordBtn, #stopRecordBtn {
+        display: none;
+        margin: 8px auto;
+        padding: 8px 15px;
+        font-size: 14px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #captureBtn:hover, #startRecordBtn:hover, #stopRecordBtn:hover {
+        background: #218838;
+    }
+
+
+
+
+    #history-box {
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+      margin-top: 10px;
+  }
+  
+  #history-box h3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 10px 0;
+  }
+  
+  #history-messages .message {
+      background-color: #e0e0e0;
+      margin: 5px 0;
+      padding: 5px 10px;
+      border-radius: 6px;
+  }
+  
